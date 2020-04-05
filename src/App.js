@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./App.css";
 import Logo from "./Logo"
 import SideBar from "./SideBar"
 import Home from "./Home"
