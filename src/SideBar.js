@@ -1,7 +1,6 @@
 import React from "react"
 import "./SideBar.css";
 
-// not sure if needed here or just in app.js but leaving it just in case
 // import Login from "./Login"
 // import Profile from "./Profile"
 // import Home from "./Home"
@@ -14,15 +13,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 // Wengel
 export default function SideBar({ items }) {
     return (
-    // <div>
-    //     <ul>
-    //         <Login/>
-    //         <Profile />
-    //         <Home />
-    //         <ChatRoom />
-    //     </ul>
-    // </div>
-    <div className="Side">
+    <div className="SideBar">
         <List disablePadding dense>
             {items.map(({ label, name, ...rest }) => (
                 <ListItem key={name} button {...rest}>
