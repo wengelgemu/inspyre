@@ -25,7 +25,7 @@ export default function SideBar() {
                             <ListItemText primary="Signup/Login" secondary= {Login} ></ListItemText>
                         </ListItem>
                         <Route exact path="/Login" component={Login}></Route>
-                        </Switch>
+                    </Switch>
                 </div>
             </Router>
 
