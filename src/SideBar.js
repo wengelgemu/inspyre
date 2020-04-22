@@ -16,9 +16,11 @@ export default function SideBar() {
     return (
     <div className="Side">
         <List disablePadding dense>
-            <ListItem button>
-                <ListItemText primary="Login" secondary= {Login} ></ListItemText>
-            </ListItem>
+            <div className="s">
+                <ListItem button>
+                    <ListItemText primary="Signup/Login" secondary= {Login} ></ListItemText>
+                </ListItem>
+            </div>
             <ListItem button>
                 <ListItemText primary="Profile" secondary= {Profile}></ListItemText>
             </ListItem>
