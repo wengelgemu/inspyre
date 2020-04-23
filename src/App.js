@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div className="App">
       <Logo />
-      <SideBar/>
+      <SideBar />
       <Home />
     </div>
   );
