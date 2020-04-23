@@ -3,6 +3,7 @@ import "./App.css";
 import Logo from "./Logo"
 import SideBar from "./SideBar"
 import Home from "./Home"
+import Search from "./Search"
 
 
 export default function App() {
@@ -11,8 +12,12 @@ export default function App() {
       <Logo />
       <SideBar/>
       <Home />
+      <Search/>
     </div>
   );
 }
+
+
+
 
 
