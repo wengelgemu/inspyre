@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Input from '@material-ui/core/Input';
+import Grid from '@material-ui/core/Grid';
+import "../styles/Search.css";
 export default function Search() {
   const [photo, setPhoto] = useState('');
   // TODO:
@@ -24,25 +27,27 @@ export default function Search() {
   }
   return (
     <div className="App">
-      <h1>UnSplash Search</h1>
-      <form onSubmit={handleSubmit}>
-        <input
+      {/* <h1>UnSplash Search</h1> */}
+      <form onSubmit={handleSubmit} class = "searchbox">
+        <Input
           onChange={handleChange}
           type="text"
           name="photo"
           placeholder="Search for Photos..."
         />
-        <input type="submit" value="Search"></input>
+        <Input type="submit" value="Search"></Input>
       </form>
-      {result.length > 0 && 'Click on an image to add to collection'}
-      {result.map(photo => (
-        <img
-          key={photo.id}
-          onClick={() => addToCollection(photo.urls.small)}
-          src={photo.urls.small}
-          alt={photo.description}
-        />
-      ))}
+      <Grid container spacing = {1}>
+        {result.length > 0 && 'Click on an image to add to collection'}
+        {result.map(photo => (
+          <img
+            key={photo.id}
+            onClick={() => addToCollection(photo.urls.small)}
+            src={photo.urls.small}
+            alt={photo.description}
+          />
+        ))}
+      </Grid>
     </div>
   );
 }

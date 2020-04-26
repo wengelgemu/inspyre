@@ -7,7 +7,7 @@ import "../styles/SideBar.css";
 // import Home from "./Home"
 // import ChatRoom from "./ChatRoom"
 
-import List from '@material-ui/core/List'
+// import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 
@@ -43,14 +43,14 @@ export default function SideBar() {
                 </ListItem>
             </font>
           </NavLink>
-
+          
           <NavLink style={{
               textDecoration: "none",
               color: "rgba(2, 1, 66, 1)",
               paddingRight: "2%"
             }}
-            className="AboutUsTab"
-            activeClassName="ActiveAboutUsTab"
+            className="LoginTab"
+            activeClassName="ActiveLoginTab"
             id="LoginTab"
             to="/Login">
             <font face="FuturaItalicBold" >
@@ -59,7 +59,7 @@ export default function SideBar() {
                 </ListItem>
             </font>
           </NavLink>
-
+          
           <NavLink
             style={{
               textDecoration: "none",
@@ -77,7 +77,7 @@ export default function SideBar() {
                 </ListItem>
             </font>
           </NavLink>
-
+          
           <NavLink
             style={{
               textDecoration: "none",
@@ -87,11 +87,11 @@ export default function SideBar() {
             className="ChatRoomTab"
             activeClassName="ActiveChatRoomTab"
             exact
-            id="ChatRoom"
+            id="ChatRoomTab"
             to="/ChatRoom">
             <font face="FuturaItalicBold" >
                 <ListItem button>
-                    <ListItemText primary="Chatroom"></ListItemText>
+                    <ListItemText primary="ChatRoom"></ListItemText>
                 </ListItem>
             </font>
           </NavLink>

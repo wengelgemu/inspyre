@@ -17,9 +17,9 @@ export default function App() {
             <div className="SideBar"> 
             {/* <AppTabs className="testing" /> */}
             <Switch>
-                {/* <Route exact path="/">
-                    <Home />
-                </Route> */}
+                <Route exact path="/">
+                    <Search />
+                </Route>
                 
                 <Route exact path="/Login">
                     <Login />
