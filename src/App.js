@@ -1,12 +1,11 @@
 import React from 'react';
-import "./App.css";
-import Logo from "./Logo"
-import SideBar from "./SideBar"
-import Search from "./Search"
+import Logo from "./components/Logo"
+import SideBar from "./components/SideBar"
+import Search from "./components/Search"
 
-import Login from "./Login"
-import Profile from "./Profile"
-import ChatRoom from "./ChatRoom"
+import Login from "./components/Login"
+import Profile from "./components/Profile"
+import ChatRoom from "./components/ChatRoom"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -18,9 +17,9 @@ export default function App() {
             <div className="SideBar"> 
             {/* <AppTabs className="testing" /> */}
             <Switch>
-                <Route exact path="/">
+                {/* <Route exact path="/">
                     <Home />
-                </Route>
+                </Route> */}
                 
                 <Route exact path="/Login">
                     <Login />

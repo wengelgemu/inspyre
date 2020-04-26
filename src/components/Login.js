@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Button, FormGroup, FormControl, FormLabel } from 'react-bootstrap';
-import "./Login.css";
+// import "./Login.css";
 // Wengel
 export default function Login() {
     const [email, setEmail] = useState("");

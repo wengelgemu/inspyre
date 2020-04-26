@@ -1,18 +1,11 @@
 import React from "react"
-import "./SideBar.css";
+import "../styles/SideBar.css";
 
-<<<<<<< HEAD
-// not sure if needed here or just in app.js but leaving it just in case
-import Login from "./Login"
-import Profile from "./Profile"
-import ChatRoom from "./ChatRoom"
-=======
 // // not sure if needed here or just in app.js but leaving it just in case
 // import Login from "./Login"
 // import Profile from "./Profile"
 // import Home from "./Home"
 // import ChatRoom from "./ChatRoom"
->>>>>>> f56fa614aa668db62a8abe51228718cc6d6f39de
 
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -25,49 +18,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 export default function SideBar() {
     return (
-<<<<<<< HEAD
-    <div className="Side">
-        <List disablePadding dense>
-            <Router>
-                <div className="s">
-                    <Switch>
-                        <ListItem button>
-                            <ListItemText primary="Signup/Login" secondary= {Login} ></ListItemText>
-                        </ListItem>
-                        <Route exact path="/Login" component={Login}></Route>
-                    </Switch>
-                </div>
-            </Router>
-
-            <Router>
-                <Switch>
-                    <ListItem button>
-                        <ListItemText primary="Profile" secondary= {Profile}></ListItemText>
-                    </ListItem>
-                    <Route exact path="/Profile" component={Profile}></Route>
-                </Switch>
-            </Router>
-            
-            {/* <Router>
-                <Switch>
-                    <ListItem button>
-                        <ListItemText primary="Home" secondary= {Home}></ListItemText>
-                    </ListItem>
-                    <Route exact path="/Home" component={Home}></Route>
-                </Switch>
-            </Router> */}
-
-            <Router>
-                <Switch>
-                    <ListItem button>
-                        <ListItemText primary="ChatRoom" secondary= {ChatRoom}></ListItemText>
-                    </ListItem>
-                    <Route exact path="/ChatRoom" component={ChatRoom}></Route>
-                </Switch>
-            </Router>
-        </List>
-    </div>
-=======
     <Router>
       <div className="Side">
         <nav style={{
@@ -116,7 +66,7 @@ export default function SideBar() {
               color: "rgba(2, 1, 66, 1)",
               paddingRight: "2%"
             }}
-            ClassName="ProfileTab"
+            className="ProfileTab"
             activeClassName="ActiveProfileTab"
             exact
             id="ProfileTab"
@@ -134,7 +84,7 @@ export default function SideBar() {
               color: "rgba(2, 1, 66, 1)",
               paddingRight: "2%"
             }}
-            ClassName="ChatRoomTab"
+            className="ChatRoomTab"
             activeClassName="ActiveChatRoomTab"
             exact
             id="ChatRoom"
@@ -149,7 +99,6 @@ export default function SideBar() {
         </nav>
       </div>
       </Router>
->>>>>>> f56fa614aa668db62a8abe51228718cc6d6f39de
     );
   }
 
