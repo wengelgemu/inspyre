@@ -4,7 +4,6 @@ import "./SideBar.css";
 // not sure if needed here or just in app.js but leaving it just in case
 import Login from "./Login"
 import Profile from "./Profile"
-import Home from "./Home"
 import ChatRoom from "./ChatRoom"
 
 import List from '@material-ui/core/List'
@@ -38,14 +37,14 @@ export default function SideBar() {
                 </Switch>
             </Router>
             
-            <Router>
+            {/* <Router>
                 <Switch>
                     <ListItem button>
                         <ListItemText primary="Home" secondary= {Home}></ListItemText>
                     </ListItem>
                     <Route exact path="/Home" component={Home}></Route>
                 </Switch>
-            </Router>
+            </Router> */}
 
             <Router>
                 <Switch>

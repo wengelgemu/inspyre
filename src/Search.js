@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {Component, useState} from "react";
 import ReactDOM from"react-dom";
 import axios from 'axios';
 
@@ -19,6 +19,7 @@ function Search() {
     })
 
   }
+
   return (
     <div className="App">
       <h1>UnSplash Search</h1>
@@ -35,4 +36,3 @@ export default Search;
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<Search/>, rootElement);
-//export default App;
