@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Input from '@material-ui/core/Input';
-import Typography from '@material-ui/core/Typography'
+import Typography from '@material-ui/core/Typography';
 import "../styles/Search.css";
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
+
+
 export default function Search() {
   const [photo, setPhoto] = useState('');
   // TODO:
@@ -28,9 +30,7 @@ export default function Search() {
     event.preventDefault();
   }
 
-
-
-  // Style
+  // Styling images
   const GlobalStyle = createGlobalStyle`
     * {
       margin: 0;
@@ -46,34 +46,36 @@ export default function Search() {
     margin: 4rem auto;
     display: grid;
     grid-gap: 1em;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 0.5fr));
     grid-auto-rows: 300px;
   `;
 
   return (
     <div className="App">
       
-      <form onSubmit={handleSubmit} class = "searchbox">
+      <form onSubmit={handleSubmit} className = "searchbox">
       <Typography variant = "h1">INSYPRE</Typography >
         <Input
           onChange={handleChange}
           type="text"
           name="photo"
-          placeholder="Search for Photos..."
         />
         <Input type="submit" value="Search"></Input>
       </form>
-      <WrapperImages>
-        {result.length > 0 && 'Click on an image to add to collection'}
-        {result.map(photo => (
-          <img
-            key={photo.id}
-            onClick={() => addToCollection(photo.urls.small)}
-            src={photo.urls.small}
-            alt={photo.description}
-          />
-        ))}
-      </WrapperImages>
+      <GlobalStyle />
+        <WrapperImages>
+          {/* {result.length > 0 && 'Click on an image to add to collection'} */}
+          {result.map(photo => (
+            <img
+              className = "images"
+              key={photo.id}
+              onClick={() => addToCollection(photo.urls.small)}
+              src={photo.urls.small}
+              alt={photo.description}
+            />
+          ))}
+        </WrapperImages>
+
     </div>
   );
 }
