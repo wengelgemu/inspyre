@@ -46,7 +46,7 @@ export default function Search() {
     margin: 4rem auto;
     display: grid;
     grid-gap: 1em;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 0.5fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
     grid-auto-rows: 300px;
   `;
 
