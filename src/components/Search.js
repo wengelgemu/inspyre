@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import "../styles/Search.css";
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
-
+import firebase, { db } from '../firebase.js';
 
 export default function Search() {
   const [photo, setPhoto] = useState('');
@@ -19,8 +19,18 @@ export default function Search() {
     setPhoto(event.target.value);
   }
   function addToCollection(url) {
-    // TODO: actually make a collection and add to it
-    console.log(`You added ${url} to your collection`);
+    db.collection("users").add ({
+      photos: {url}
+    })
+    // db.collection("users").doc("photos").get().then(function(doc) {
+    // if (doc.exists) {
+    //   console.log("Document data:", doc.data());
+    // } else {
+    //   console.log("No such document!");
+    // }
+    // }).catch(function(error) {
+    //   console.log("Error getting document:", error);
+    // });
   }
   function handleSubmit(event) {
     const url = baseUrl + photo + '&client_id=' + clientId;
@@ -59,12 +69,12 @@ export default function Search() {
           onChange={handleChange}
           type="text"
           name="photo"
+          autoComplete = "off"
         />
         <Input type="submit" value="Search"></Input>
       </form>
       <GlobalStyle />
         <WrapperImages>
-          {/* {result.length > 0 && 'Click on an image to add to collection'} */}
           {result.map(photo => (
             <img
               className = "images"

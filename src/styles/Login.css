@@ -1,0 +1,14 @@
+.button-login {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    margin-top: 1px;
+    margin-right: 2px;
+}
+.button-logout {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    margin-top: 1px;
+    margin-right: 2px;
+}

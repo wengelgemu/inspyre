@@ -1,19 +1,14 @@
-import React, { Component } from 'react';
+import React, {useState, Component} from 'react';
 import firebase, { auth, provider } from '../firebase.js';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import '../styles/Login.css'
-export default class Login extends Component {
+
+export default class Collection extends Component {
+    // const [setPhotos, savedPhotos] = useState([]);
     constructor() {
         super();
         this.state = {
           user: null
-        }
-        this.login = this.login.bind(this); 
-        this.logout = this.logout.bind(this); 
-    
+        }  
       }
-    
     componentDidMount() {
         auth.onAuthStateChanged((user) => {
           if (user) {
@@ -21,7 +16,6 @@ export default class Login extends Component {
           } 
         });
     }
-    
     logout() {
         auth.signOut()
           .then(() => {
@@ -42,28 +36,26 @@ export default class Login extends Component {
     }
     render() {
         return (
-            <div className = "Login">
+            <div className = "Collection">
                 {
           this.state.user ?
           <div>
-            <Typography>{this.state.user.displayName}</Typography>
+            <h2 style={{color:'black'}}>{this.state.user.displayName} 's Collection</h2>
+            <div className="profile">
+              <img className="img" width="50px" src={this.state.user.photoURL} />
+              <h3 className = "email">{this.state.user.email}</h3>
+            </div>
           </div>
           :
           <div className='wrapper'>
+            <p style={{color:'black'}}>You must login first</p>
             <center>
               <div className="default">
               </div>
             </center>
           </div>
         }
-          <div className="wrapper">
-            {this.state.user ?
-              <Button className="button-logout" onClick={this.logout}>Logout</Button>                
-              :
-              <Button className="button-login" onClick={this.login}>Login</Button>              
-            }
-          </div>
-            </div>
-        )
+        </div>
+        );
     }
 }
