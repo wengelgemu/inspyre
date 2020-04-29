@@ -26,16 +26,16 @@ export default function SideBar() {
             </font>
           </NavLink>
           <NavLink
-            activeClassName="ActiveProfileTab"
-            id="ProfileTab"
-            to="/Profile">
+            activeClassName="ActiveCollectionTab"
+            id="CollectionTab"
+            to="/Collection">
             <font face="FuturaItalicBold" >
                 <ListItem button>
-                    <ListItemText primary="Profile"></ListItemText>
+                    <ListItemText primary="Collection"></ListItemText>
                 </ListItem>
             </font>
           </NavLink>
         </nav>
       </div>
     );
-  }
+}
