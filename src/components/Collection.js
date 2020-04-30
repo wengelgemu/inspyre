@@ -1,61 +1,76 @@
-import React, {useState, Component} from 'react';
-import firebase, { auth, provider } from '../firebase.js';
+import React, { Component } from 'react';
+import { auth } from '../firebase.js';
+import Typography from '@material-ui/core/Typography';
+import "../styles/Collection.css"
+import { db } from '../firebase.js';
+import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
+const GlobalStyle = createGlobalStyle`
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: sans-serif;
+    }
+`;
+const WrapperImages = styled.section`
+  max-width: 70rem;
+  margin: 4rem auto;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+  grid-auto-rows: 300px;
+`;
 export default class Collection extends Component {
-    // const [setPhotos, savedPhotos] = useState([]);
-    constructor() {
-        super();
-        this.state = {
-          user: null
+        state = {
+          user: null,
+          photos: []
         }  
-      }
-    componentDidMount() {
+  
+    componentDidMount = () => {
         auth.onAuthStateChanged((user) => {
           if (user) {
             this.setState({ user });
           } 
         });
-    }
-    logout() {
-        auth.signOut()
-          .then(() => {
+        db.collection("user_collection").doc("JkSC2oiStffnojm07TIc").get().then(snap => 
+          {
+            let newPhotos = snap.data()
+            console.log(newPhotos)
             this.setState({
-              user: null
-            });
-          });
+              photos: [...newPhotos.photos]
+            })
+          })
     }
-    
-    login() {
-        auth.signInWithPopup(provider) 
-          .then((result) => {
-            const user = result.user;
-            this.setState({
-              user
-            });
-          });
+    displayPhotos = () => {
+      return (this.state.photos.map((photo, i) => {
+        return <img className = "images" key = {i} src = {photo}/>
+      }))
     }
+
     render() {
         return (
             <div className = "Collection">
                 {
-          this.state.user ?
-          <div>
-            <h2 style={{color:'black'}}>{this.state.user.displayName} 's Collection</h2>
-            <div className="profile">
-              <img className="img" width="50px" src={this.state.user.photoURL} />
-              <h3 className = "email">{this.state.user.email}</h3>
+                  this.state.user ?
+                  <div>
+                    <Typography className= "collectionName" variant = "h4">{this.state.user.displayName}'S COLLECTION</Typography>
+                  </div>
+                  :
+                    <div>
+                      <Typography  className = "reminderLogin" variant = "h4">LOGIN TO SAVE YOUR COLLECTION</Typography>
+                    </div>
+                }
+                <div className = "imageGrid">
+                  <GlobalStyle />
+                  <WrapperImages>
+                    { this.displayPhotos() }
+                  </WrapperImages>
+                </div>
             </div>
-          </div>
-          :
-          <div className='wrapper'>
-            <p style={{color:'black'}}>You must login first</p>
-            <center>
-              <div className="default">
-              </div>
-            </center>
-          </div>
-        }
-        </div>
         );
     }
 }

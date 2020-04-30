@@ -2,6 +2,8 @@ import React from "react";
 import {NavLink} from 'react-router-dom';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import HomeIcon from '@material-ui/icons/Home';
+import '../styles/SideBar.css'
 
 
 export default function SideBar() {
@@ -11,9 +13,14 @@ export default function SideBar() {
           style={{
             marginLeft: "3%",
             zIndex: 1,
-            position: "relative"
+            position: "relative",
+            width: "180px"
           }}>
-          <NavLink
+          <NavLink style = {{
+            textDecoration: "none",
+            color: "rgba(2, 1, 66, 1)",
+            paddingRight: "2%"
+            }}
             className="SearchTab"
             activeClassName="ActiveSearchTab"
             exact
@@ -21,17 +28,21 @@ export default function SideBar() {
             to="/">
             <font face="FuturaItalicBold" >
                 <ListItem button>
-                    <ListItemText primary="Home"></ListItemText>
+                    <HomeIcon className = "homeButton" color = "black"/>
                 </ListItem>
             </font>
           </NavLink>
-          <NavLink
+          <NavLink style={{
+            textDecoration: "none",
+            color: "rgba(2, 1, 66, 1)",
+            paddingRight: "2%"
+            }}
             activeClassName="ActiveCollectionTab"
             id="CollectionTab"
             to="/Collection">
             <font face="FuturaItalicBold" >
-                <ListItem button>
-                    <ListItemText primary="Collection"></ListItemText>
+                <ListItem button alignItems = "center">
+                    <ListItemText primary="COLLECTION"></ListItemText>
                 </ListItem>
             </font>
           </NavLink>

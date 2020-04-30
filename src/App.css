@@ -1,0 +1,16 @@
+.SideBar {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 60px;
+    padding-right: 45px;
+}
+
+.search {
+    top: 20%;
+    left: 20%;
+}

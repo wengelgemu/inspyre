@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import firebase, { auth, provider } from '../firebase.js';
+import { auth, provider } from '../firebase.js';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import '../styles/Login.css'
 export default class Login extends Component {
     constructor() {
@@ -35,6 +34,7 @@ export default class Login extends Component {
         auth.signInWithPopup(provider) 
           .then((result) => {
             const user = result.user;
+            console.log(user);
             this.setState({
               user
             });
@@ -46,7 +46,6 @@ export default class Login extends Component {
                 {
           this.state.user ?
           <div>
-            <Typography>{this.state.user.displayName}</Typography>
           </div>
           :
           <div className='wrapper'>
@@ -58,9 +57,9 @@ export default class Login extends Component {
         }
           <div className="wrapper">
             {this.state.user ?
-              <Button className="button-logout" onClick={this.logout}>Logout</Button>                
+              <Button className="button-logout" onClick={this.logout}>[click here to logout]</Button>                
               :
-              <Button className="button-login" onClick={this.login}>Login</Button>              
+              <Button className="button-login" onClick={this.login}>[click here to login]</Button>              
             }
           </div>
             </div>

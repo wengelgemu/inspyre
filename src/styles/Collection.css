@@ -1,0 +1,14 @@
+.collectionName {
+    position: absolute;
+    top: 20%;
+    left: 33%;
+    text-align: center; 
+    text-transform: uppercase;
+}
+
+.reminderLogin {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    text-align: center; 
+}

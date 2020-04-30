@@ -1,7 +1,7 @@
 .searchbox {
     position: absolute;
     top:25%;
-    left: 40%;
+    left: 35%;
     text-align: center; 
 }
 
@@ -9,4 +9,17 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.imageGrid {
+    margin-top: 30%;
+    text-align: center;
+    margin-left: 170px;
+}
+
+.textForImages {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    margin-bottom: 10px;
 }

@@ -5,33 +5,29 @@ import Typography from '@material-ui/core/Typography';
 import "../styles/Search.css";
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
-import firebase, { db } from '../firebase.js';
+import { db } from '../firebase.js';
 
 export default function Search() {
   const [photo, setPhoto] = useState('');
-  // TODO:
-  // Ask Masao how to put this in an environment so it is not in GitHub
-  // Also get a new key bc people scrape GitHub for keys
   const [clientId, setClientId] = useState('2gFzcGJwfBY7lcEXlfTlqFluMFZnr1IEF2JBI5OeCHo');
   const [result, setResult] = useState([]);
   const baseUrl = 'https://api.unsplash.com/search/photos?page=1&query=';
+
   function handleChange(event) {
     setPhoto(event.target.value);
   }
+
   function addToCollection(url) {
-    db.collection("users").add ({
-      photos: {url}
-    })
-    // db.collection("users").doc("photos").get().then(function(doc) {
-    // if (doc.exists) {
-    //   console.log("Document data:", doc.data());
-    // } else {
-    //   console.log("No such document!");
-    // }
-    // }).catch(function(error) {
-    //   console.log("Error getting document:", error);
-    // });
+    db.collection("user_collection").doc("JkSC2oiStffnojm07TIc").get().then(snap => 
+      {
+        let newPhotos = snap.data()
+        console.log(newPhotos)
+        db.collection("user_collection").doc("JkSC2oiStffnojm07TIc").update({
+          photos: [...newPhotos.photos, url]
+        })
+      })
   }
+
   function handleSubmit(event) {
     const url = baseUrl + photo + '&client_id=' + clientId;
     axios.get(url).then(response => {
@@ -40,7 +36,6 @@ export default function Search() {
     event.preventDefault();
   }
 
-  // Styling images
   const GlobalStyle = createGlobalStyle`
     * {
       margin: 0;
@@ -62,7 +57,6 @@ export default function Search() {
 
   return (
     <div className="App">
-      
       <form onSubmit={handleSubmit} className = "searchbox">
       <Typography variant = "h1">INSYPRE</Typography >
         <Input
@@ -71,21 +65,23 @@ export default function Search() {
           name="photo"
           autoComplete = "off"
         />
-        <Input type="submit" value="Search"></Input>
+        <Input type="submit" value="SEARCH"></Input>
       </form>
-      <GlobalStyle />
-        <WrapperImages>
-          {result.map(photo => (
-            <img
-              className = "images"
-              key={photo.id}
-              onClick={() => addToCollection(photo.urls.small)}
-              src={photo.urls.small}
-              alt={photo.description}
-            />
-          ))}
-        </WrapperImages>
-
+      <div className = "imageGrid">
+        <GlobalStyle />
+          <WrapperImages>
+            {result.map(photo => (
+              <img
+                className = "images"
+                key={photo.id}
+                onClick={() => addToCollection(photo.urls.small)}
+                src={photo.urls.small}
+                alt={photo.description}
+              />
+            ))}
+            <Typography className = "textForImages">SELECT IMAGES TO ADD TO COLLECTION</Typography>
+          </WrapperImages>
+      </div>
     </div>
   );
 }
