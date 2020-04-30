@@ -7,6 +7,24 @@ import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import { db } from '../firebase.js';
 
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: sans-serif;
+  }
+`;
+const WrapperImages = styled.section`
+  max-width: 70rem;
+  margin: 4rem auto;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+  grid-auto-rows: 300px;
+`;
 export default function Search() {
   const [photo, setPhoto] = useState('');
   const [clientId, setClientId] = useState('2gFzcGJwfBY7lcEXlfTlqFluMFZnr1IEF2JBI5OeCHo');
@@ -35,25 +53,6 @@ export default function Search() {
     });
     event.preventDefault();
   }
-
-  const GlobalStyle = createGlobalStyle`
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: sans-serif;
-    }
-  `;
-  const WrapperImages = styled.section`
-    max-width: 70rem;
-    margin: 4rem auto;
-    display: grid;
-    grid-gap: 1em;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
-    grid-auto-rows: 300px;
-  `;
 
   return (
     <div className="App">
